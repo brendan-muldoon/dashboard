@@ -8,31 +8,37 @@
           style="max-width: 100px; max-height: 50px"
         />
       </router-link>
-      <router-link to="/about"
-      class="navbar-brand documentation-text-color"
-      href="/"
-      style="margin-left: 20px"
-      >About</router-link
-    >
-      <router-link to="/documentation"
+      <router-link
+        to="/about"
+        class="navbar-brand documentation-text-color"
+        href="/"
+        style="margin-left: 20px"
+        >About</router-link
+      >
+      <router-link
+        to="/documentation"
         class="navbar-brand documentation-text-color"
         href="/documentation"
         style="margin-left: 20px"
         >Documentation</router-link
       >
-
     </div>
-    <form class="form-inline d-flex align-items-center">
+    <form class="form-inline d-flex align-items-center" @submit.prevent="search">
       <input
         class="form-control mr-sm-2"
         type="search"
         placeholder="Search"
         aria-label="Search"
+        v-model="query"
         style="margin-right: 10px"
       />
-      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">
-        Search
-      </button>
+      <router-link
+      :to="{ name: 'search-result', query: { q: query } }"
+      class="btn btn-outline-warning my-2 my-sm-0"
+      type="submit"
+    >
+      Search
+    </router-link>
     </form>
   </nav>
 </template>
@@ -47,6 +53,23 @@
 
 <script>
 export default {
-  name: "AppNavbar"
+  name: "AppNavbar",
+  props: {
+    method: {
+      type: Function,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      query: ''
+    }
+  },
+  methods: {
+    search() {
+      // call the method prop passed down from the parent component
+      this.method(this.query);
+    },
+  },
 };
 </script>

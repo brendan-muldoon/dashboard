@@ -86,7 +86,7 @@ export default {
 
 h4 {
   font-size: 1.5rem;
-  padding-top: 10rem;
+  padding-top: 5rem;
   padding-bottom: 1rem;
   margin-right: 10rem;
   margin-left: 10rem;
