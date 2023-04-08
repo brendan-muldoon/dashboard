@@ -19,7 +19,7 @@ const routes = [
     path: "/search-result",
     name: "search-result",
     component: SearchResult,
-    props: (route) => ({ data: JSON.parse(route.query.q) }),
+    props: (route) => ({ id: route.query.q }),
   },
   
 ];

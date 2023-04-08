@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container">
-      <h3>Search results for application: '{{ results["appId"] }}'</h3>
+      <h3>Search results for application: '{{ id }}'</h3>
       <a v-for="(result, index) in results['logs']" :key="result">
         <div class="accordion" :id="'accordion-' + index">
           <div class="accordion-item">
@@ -29,7 +29,6 @@
           </div>
         </div>
       </a>
-
     </div>
   </div>
 </template>
@@ -39,6 +38,12 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "SearchResult",
+  props: {
+    id: {
+      type: String,
+      required: true,
+    },
+  },
   computed: {
     ...mapGetters(["getResults"]),
     results() {

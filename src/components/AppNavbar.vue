@@ -67,11 +67,7 @@ export default {
     ...mapActions(['setResults']),
     async search() {
       await axios
-        .get("http://localhost:8088/api/search", {
-          params: {
-            query: this.appId,
-          },
-        })
+        .get("http://localhost:8088/api/search/" + this.appId)
         .then((response) => {
           this.$router.push({
             name: "search-result",
