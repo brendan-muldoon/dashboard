@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer mt-auto py-3 bg-light" style="postion: fixed">
+  <footer class="mt-auto py-3 bg-light footer">
     <div class="container d-inline-flex p-2 justify-content-end">
       <span class="text-muted" 
         >© British Telecommunications plc 2023
@@ -19,4 +19,13 @@ export default {
 </script>
 
 <style scoped>
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #ccc;
+  padding: 10px;
+  height: 75px;
+}
 </style>

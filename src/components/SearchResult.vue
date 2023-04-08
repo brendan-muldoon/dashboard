@@ -29,7 +29,7 @@
           </div>
         </div>
       </a>
-      
+
     </div>
   </div>
 </template>
@@ -55,7 +55,7 @@ export default {
 h3 {
   font-size: 2.5rem;
   padding-top: 50px;
-  padding-bottom: 1rem;
+  padding-bottom: 10rem;
   text-align: center;
 }
 </style>

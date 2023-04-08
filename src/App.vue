@@ -1,7 +1,8 @@
 <template>
   <AppNavbar />
-  <div :class="theme">
-    <div class="container" style="position: sticky; top:0;">
+
+  <div :class="theme" style="min-height: 90vh">
+    <div class="container" style="position: sticky; top: 0">
       <label class="switch m-3 justify-content-end" style="float: right">
         <input type="checkbox" checked @click="toggleTheme" />
         <span class="slider round"></span>
@@ -9,6 +10,7 @@
     </div>
     <router-view />
   </div>
+
   <AppFooter />
 </template>
 
@@ -37,11 +39,13 @@ export default {
       this.isDarkMode = !this.isDarkMode;
     },
   },
-
 };
 </script>
 
 <style>
+.app {
+  min-height: 100%;
+}
 .light {
   background-color: #fff;
   color: #292b2c;

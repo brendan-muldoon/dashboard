@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" style="min-height: 100%">
       <h2>Documentation</h2>
       <h4>How to setup:</h4>
       <p>
