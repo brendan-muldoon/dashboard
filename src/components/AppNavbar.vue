@@ -23,22 +23,21 @@
         >Documentation</router-link
       >
     </div>
-    <form class="form-inline d-flex align-items-center" @submit.prevent="search">
+    <form
+      class="form-inline d-flex align-items-center"
+      @submit.prevent="search"
+    >
       <input
         class="form-control mr-sm-2"
         type="search"
         placeholder="Search"
         aria-label="Search"
-        v-model="query"
         style="margin-right: 10px"
+        v-model="appId"
       />
-      <router-link
-      :to="{ name: 'search-result', query: { q: query } }"
-      class="btn btn-outline-warning my-2 my-sm-0"
-      type="submit"
-    >
-      Search
-    </router-link>
+      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">
+        Search
+      </button>
     </form>
   </nav>
 </template>
@@ -52,23 +51,37 @@
 </style>
 
 <script>
+import axios from "axios";
+import { mapActions } from 'vuex';
+
+
 export default {
   name: "AppNavbar",
-  props: {
-    method: {
-      type: Function,
-      required: true,
-    },
-  },
   data() {
     return {
-      query: ''
+      appId: "",
+      results: null
     }
   },
   methods: {
-    search() {
-      // call the method prop passed down from the parent component
-      this.method(this.query);
+    ...mapActions(['setResults']),
+    async search() {
+      await axios
+        .get("http://localhost:8088/api/search", {
+          params: {
+            query: this.appId,
+          },
+        })
+        .then((response) => {
+          this.$router.push({
+            name: "search-result",
+            query: {
+              q: this.appId,
+            },
+          });
+          this.appId = "";
+          this.setResults(response.data)
+        });
     },
   },
 };

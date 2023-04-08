@@ -9,6 +9,9 @@ import AppDocumentation from "./components/AppDocumentation.vue";
 import AppAbout from "./components/AppAbout.vue";
 import SearchResult from "./components/SearchResult.vue";
 
+import store from './store/store';
+
+
 const routes = [
   { path: "/documentation", component: AppDocumentation },
   { path: "/about", component: AppAbout },
@@ -16,8 +19,9 @@ const routes = [
     path: "/search-result",
     name: "search-result",
     component: SearchResult,
-    props: (route) => ({ results: route.params.results }),
+    props: (route) => ({ data: JSON.parse(route.query.q) }),
   },
+  
 ];
 
 const router = createRouter({
@@ -25,4 +29,6 @@ const router = createRouter({
   routes, // short for `routes: routes`
 });
 
-createApp(App).use(router).mount("#app");
+const app = createApp(App);
+app.use(router).mount("#app");
+app.use(store);

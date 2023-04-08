@@ -1,5 +1,5 @@
 <template>
-  <AppNavbar @search="search"/>
+  <AppNavbar />
   <div :class="theme">
     <div class="container" style="position: sticky; top:0;">
       <label class="switch m-3 justify-content-end" style="float: right">
@@ -15,8 +15,6 @@
 <script>
 import AppNavbar from "./components/AppNavbar.vue";
 import AppFooter from "./components/AppFooter.vue";
-import axios from 'axios';
-
 
 export default {
   name: "App",
@@ -27,7 +25,6 @@ export default {
   data() {
     return {
       isDarkMode: false,
-      searchResults: null,
     };
   },
   computed: {
@@ -38,10 +35,6 @@ export default {
   methods: {
     toggleTheme() {
       this.isDarkMode = !this.isDarkMode;
-    },
-    async search(query) {
-      const response = await axios.get(`/api/search?q=${query}`);
-      this.searchResults = response.data;
     },
   },
 

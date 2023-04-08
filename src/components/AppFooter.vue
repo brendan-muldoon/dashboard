@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer mt-auto py-3 bg-light" style="postion: absolute">
+  <footer class="footer mt-auto py-3 bg-light" style="postion: fixed">
     <div class="container d-inline-flex p-2 justify-content-end">
       <span class="text-muted" 
         >© British Telecommunications plc 2023
