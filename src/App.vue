@@ -1,17 +1,19 @@
 <template>
-  <AppNavbar />
-
-  <div :class="theme" style="min-height: 90vh">
-    <div class="container" style="position: sticky; top: 0">
-      <label class="switch m-3 justify-content-end" style="float: right">
-        <input type="checkbox" checked @click="toggleTheme" />
-        <span class="slider round"></span>
-      </label>
+  <div class="app">
+    <AppNavbar />
+    <div :class="theme" style="min-height: 100%">
+      <div class="container" style="position: sticky; top: 0">
+        <label class="switch m-3 justify-content-end" style="float: right">
+          <input type="checkbox" checked @click="toggleTheme" />
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <router-view />
     </div>
-    <router-view />
+  
+    <AppFooter />
   </div>
 
-  <AppFooter />
 </template>
 
 <script>
@@ -44,7 +46,18 @@ export default {
 
 <style>
 .app {
+
+  position:absolute;
+  padding:0;
+  margin:0;
+
+  top:0;
+  left:0;
+
+  width: 100%;
+  height: 100%;
   min-height: 100%;
+  
 }
 .light {
   background-color: #fff;

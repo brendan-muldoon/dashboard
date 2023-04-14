@@ -22,12 +22,22 @@
         style="margin-left: 20px"
         >Documentation</router-link
       >
+      <router-link
+        to="/register"
+        class="navbar-brand documentation-text-color"
+        href="/register"
+        style="margin-left: 20px"
+        >Register</router-link
+      >
     </div>
     <form
       class="form-inline d-flex align-items-center"
       @submit.prevent="search"
     >
       <input
+        required
+        pattern="\S(.*\S)?"
+        title="This field is required"
         class="form-control mr-sm-2"
         type="search"
         placeholder="Search"
@@ -52,23 +62,27 @@
 
 <script>
 import axios from "axios";
-import { mapActions } from 'vuex';
-
+import { mapActions } from "vuex";
 
 export default {
   name: "AppNavbar",
   data() {
     return {
       appId: "",
-      results: null
-    }
+      results: null,
+    };
   },
   methods: {
-    ...mapActions(['setResults']),
+    ...mapActions(["setResults"]),
     async search() {
+      if (this.appId.trim() === "") {
+        // show error message or do something else
+        return;
+      }
       await axios
-        .get("http://localhost:8088/api/search/" + this.appId)
+        .get("http://localhost:8089/api/search/" + this.appId)
         .then((response) => {
+          console.log(response);
           this.$router.push({
             name: "search-result",
             query: {
@@ -76,7 +90,14 @@ export default {
             },
           });
           this.appId = "";
-          this.setResults(response.data)
+          this.setResults(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+          this.$router.push({
+            name: "error",
+            query: { message: error.message },
+          });
         });
     },
   },

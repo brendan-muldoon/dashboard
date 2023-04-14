@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="container">
+    <div class="container" style="padding: 0 10rem 0 10rem;">
       <h3>Search results for application: '{{ id }}'</h3>
       <a v-for="(result, index) in results['logs']" :key="result">
         <div class="accordion" :id="'accordion-' + index">
           <div class="accordion-item">
-            <h2 class="accordion-header">
+            <h2 class="accordion-header" style="padding: 0;">
               <button
                 class="accordion-button bg-dark text-color"
                 type="button"
