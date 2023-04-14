@@ -75,6 +75,7 @@ export default {
   methods: {
     ...mapActions(["setResults"]),
     async search() {
+      console.log(this.appId)
       if (this.appId.trim() === "") {
         // show error message or do something else
         return;
