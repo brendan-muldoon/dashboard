@@ -69,21 +69,20 @@ export default {
   data() {
     return {
       appId: "",
-      results: null,
+      results: [],
     };
   },
   methods: {
     ...mapActions(["setResults"]),
     async search() {
-      console.log(this.appId)
       if (this.appId.trim() === "") {
         // show error message or do something else
         return;
       }
       await axios
-        .get("http://localhost:8089/api/search/" + this.appId)
+        .get("http://localhost:8080/api/retrieve-logs/" + this.appId)
         .then((response) => {
-          console.log(response);
+          this.setResults(response.data);
           this.$router.push({
             name: "search-result",
             query: {
@@ -91,13 +90,12 @@ export default {
             },
           });
           this.appId = "";
-          this.setResults(response.data);
         })
         .catch((error) => {
           console.log(error);
           this.$router.push({
             name: "error",
-            query: { message: error.message },
+            query: { message: error.response.data },
           });
         });
     },

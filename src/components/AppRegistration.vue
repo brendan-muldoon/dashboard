@@ -43,8 +43,8 @@ export default {
       }
 
       axios
-        .post("http://localhost:8089/api/applications", {
-          name: this.appName,
+        .post("http://localhost:8080/api/register-app", {
+          applicationId: this.appName,
         })
         .then((response) => {
           console.log(response);

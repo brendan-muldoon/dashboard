@@ -2,8 +2,8 @@
   <div class="app">
     <AppNavbar />
     <div :class="theme" style="min-height: 100%">
-      <div class="container" style="position: sticky; top: 0">
-        <label class="switch m-3 justify-content-end" style="float: right">
+      <div class="container" style="position: sticky; top: 0; margin-right:0rem;">
+        <label class="switch m-3" style="float: right">
           <input type="checkbox" checked @click="toggleTheme" />
           <span class="slider round"></span>
         </label>
