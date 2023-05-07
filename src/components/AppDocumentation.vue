@@ -12,8 +12,8 @@
     <h4><u>Register Your Application</u></h4>
     <p>
       Firstly you will need to register your application. You can do so by
-      registering it <a href="/register">here</a>. Ensure the name that you
-      register matches exactly what is in your application.yml. Failure to
+      registering it <router-link to="/register" href="/register">here</router-link >. Ensure the name that you
+      register matches exactly what is in your <code>application.yml</code> or <code>application.properties</code>. Failure to
       complete either of these steps will result in logs not being correctly
       stored or being retrievable.
     </p>
@@ -69,13 +69,13 @@
       <br />
       <br />
 
-      <code>"Application Name"</code> - The name of your application.
+      <code>"applicationId"</code> - The id/ name of your application.
       <br />
 
-      <code>"Message"</code> - The log message you wish to save.
+      <code>"description"</code> - The log message you wish to save.
       <br />
 
-      <code>"Timestamp"</code> - The local date and time.
+      <code>"timestamp"</code> - The local date and time.
       <br />
       <br />
       Here's an example:
@@ -116,10 +116,12 @@
       <br/>
       However, if you recieve an error stating no logs could be found, then it's for one of two reasons. 1, you don't have any logs yet, or 2, you have not registered your app.
       <br/>
-      <br/>
-      
-      If you have any questions, queries or concerns, you can reach me at brendan.muldoon@bt.com.
     </p>
+    <h4><u>Contact</u></h4>
+<p>
+  If you have any questions, queries, concerns or ideas of improvement, you can reach me at brendan.muldoon@bt.com.
+</p>
+
 
     
   </div>
