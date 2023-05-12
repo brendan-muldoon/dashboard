@@ -35,8 +35,14 @@
     </p>
     <br />
 
-    <h4><u>Example Usage</u></h4>
+    <h4><u>Usage</u></h4>
     <p>
+
+      Add <code>@ComponentScan({"com.bt.logapiconnector.config"})</code> to your application class
+      <br/>
+      <br/>
+
+
       Include the <code>LogApiConnector</code> interface as an attrubute in the
       class of your choice. Feel free to use <code>@Autowire</code> or
       constructor injection.

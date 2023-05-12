@@ -1,9 +1,7 @@
 <template>
-  <div style="padding: 0 10rem 0 10rem">
     <h2>Register New Application</h2>
-    <div class="container shadow rounded" style="padding: 1rem; margin: 2rem">
+    <div class="container shadow rounded" style="padding: 1rem;">
       <form>
-        <div class="">
           <label for="appName"><h4>Application Name</h4></label>
           <input
             type="text"
@@ -12,7 +10,6 @@
             v-model="appName"
             required
           />
-        </div>
         <button
           type="submit"
           class="btn btn-dark btn-outline-light btn-lg mt-3"
@@ -37,7 +34,6 @@
         </button>
       </form>
     </div>
-  </div>
 </template>
 
 <script>
